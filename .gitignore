@@ -1,0 +1,6 @@
+# Terraform
+.terraform
+
+
+# Direnv
+*lock.hcl
