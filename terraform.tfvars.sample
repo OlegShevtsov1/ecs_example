@@ -1,0 +1,19 @@
+# Use the default credentials
+
+# AWS_SECRET_ACCESS_KEY=
+# AWS_ACCESS_KEY_ID=
+# AWS_SESSION_TOKEN=
+# AWS_PROFILE=
+# AWS_DEFAULT_REGION=
+
+aws_access_key    = ""
+aws_secret_key    = ""
+aws_account_id    = ""
+aws_region        = "eu-west-2"
+database_host     = ""
+database_name     = ""
+database_username = ""
+database_password = ""
+app_image_uri     = "ECR_RUBY_IMG_URI"
+nginx_image_uri   = "ECR_NGINX_IMG_URI"
+rails_master_key  = "master.key"
