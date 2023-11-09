@@ -11,3 +11,8 @@
 
 # Documentation
 # 
+
+
+# Prepare ENVs
+`cp terraform.tfvars.sample terraform.tfvars`
+
