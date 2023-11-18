@@ -41,3 +41,14 @@ module "nat_gateway" {
   private_data_subnet_az2_id = module.vpc.private_data_subnet_az2_id
 }
 
+# create security group
+module "security_group" {
+  # source = "../modules/security-groups"
+  # source = "git@github.com:aosnotes77/terraform-modules.git//security-groups" 
+  source = "git@github.com:OlegShevtsov1/ecs_example.git//security-groups?ref=terraform-dynamic"
+  project_name = local.project_name
+  environment  = local.environment
+
+  vpc_id = module.vpc.vpc_id
+  ssh_ip = var.ssh_ip
+}
