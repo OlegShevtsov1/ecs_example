@@ -35,22 +35,22 @@ output "public_subnet_az2_id" {
 
 # export the private app subnet az1 id
 output "private_app_subnet_az1_id" {
-  value = aws_subnet.private_app_subnet_az1
+  value = aws_subnet.private_app_subnet_az1.id
 }
 
 # export the private app subnet az2 id
 output "private_app_subnet_az2_id" {
-  value = aws_subnet.private_app_subnet_az2
+  value = aws_subnet.private_app_subnet_az2.id
 }
 
 # export the private data subnet az1 id
 output "private_data_subnet_az1_id" {
-  value = aws_subnet.private_data_subnet_az1
+  value = aws_subnet.private_data_subnet_az1.id
 }
 
 # export the private data subnet az2 id
 output "private_data_subnet_az2_id" {
-  value = aws_subnet.private_data_subnet_az2
+  value = aws_subnet.private_data_subnet_az2.id
 }
 
 # export the first availability zone
