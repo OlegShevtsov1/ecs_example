@@ -80,3 +80,19 @@ module "ssl_certificate" {
   domain_name               = var.domain_name
   subject_alternative_names = var.subject_alternative_names
 }
+
+# crate application load balancer
+module "application_load_balancer" {
+  # source = "../modules/alb"
+  # source = "git@github.com:aosnotes77/terraform-modules.git//alb"
+  source       = "git@github.com:OlegShevtsov1/ecs_example.git//alb?ref=terraform-dynamic"
+  project_name = local.project_name
+  environment  = local.environment
+
+  alb_security_group_id = module.security_group.alb_security_group_id
+  public_subnet_az1_id  = module.vpc.public_subnet_az1_id
+  public_subnet_az2_id  = module.vpc.public_subnet_az2_id
+  target_type           = var.target_type
+  vpc_id                = module.vpc.vpc_id
+  certificate_arn       = module.ssl_certificate.certificate_arn
+}

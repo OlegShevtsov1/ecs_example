@@ -29,3 +29,6 @@ variable "ssh_ip" {}
 # acm variables
 variable "domain_name" {}
 variable "subject_alternative_names" {}
+
+# alb variables
+variable "target_type" {}
