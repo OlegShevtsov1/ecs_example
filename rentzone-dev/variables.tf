@@ -25,3 +25,7 @@ variable "ssh_ip" {}
 # variable "database_instance_class" {}
 # variable "database_instance_identifier" {}
 # variable "multi_az_deployment" {}
+
+# acm variables
+variable "domain_name" {}
+variable "subject_alternative_names" {}

@@ -27,17 +27,17 @@ module "vpc" {
 module "nat_gateway" {
   # source = "../modules/nat-gateway"
   # source = "git@github.com:aosnotes77/terraform-modules.git//nat-gateway" 
-  source = "git@github.com:OlegShevtsov1/ecs_example.git//nat-gateway?ref=terraform-dynamic"
+  source       = "git@github.com:OlegShevtsov1/ecs_example.git//nat-gateway?ref=terraform-dynamic"
   project_name = local.project_name
   environment  = local.environment
-  
-  public_subnet_az1_id = module.vpc.public_subnet_az1_id
-  internet_gateway = module.vpc.internet_gateway
-  public_subnet_az2_id = module.vpc.public_subnet_az2_id
-  vpc_id = module.vpc.vpc_id
-  private_app_subnet_az1_id = module.vpc.private_app_subnet_az1_id
+
+  public_subnet_az1_id       = module.vpc.public_subnet_az1_id
+  internet_gateway           = module.vpc.internet_gateway
+  public_subnet_az2_id       = module.vpc.public_subnet_az2_id
+  vpc_id                     = module.vpc.vpc_id
+  private_app_subnet_az1_id  = module.vpc.private_app_subnet_az1_id
   private_data_subnet_az1_id = module.vpc.private_data_subnet_az1_id
-  private_app_subnet_az2_id = module.vpc.private_app_subnet_az2_id
+  private_app_subnet_az2_id  = module.vpc.private_app_subnet_az2_id
   private_data_subnet_az2_id = module.vpc.private_data_subnet_az2_id
 }
 
@@ -45,7 +45,7 @@ module "nat_gateway" {
 module "security_group" {
   # source = "../modules/security-groups"
   # source = "git@github.com:aosnotes77/terraform-modules.git//security-groups" 
-  source = "git@github.com:OlegShevtsov1/ecs_example.git//security-groups?ref=terraform-dynamic"
+  source       = "git@github.com:OlegShevtsov1/ecs_example.git//security-groups?ref=terraform-dynamic"
   project_name = local.project_name
   environment  = local.environment
 
@@ -70,3 +70,13 @@ module "security_group" {
 #   multi_az_deployment = var.multi_az_deployment
 #   database_security_group_id = module.security_group.database_security_group_id
 # }
+
+# request ssl certificate
+module "ssl_certificate" {
+  # source = "../modules/acm"
+  # source = "git@github.com:aosnotes77/terraform-modules.git//acm" 
+  source = "git@github.com:OlegShevtsov1/ecs_example.git//acm?ref=terraform-dynamic"
+
+  domain_name               = var.domain_name
+  subject_alternative_names = var.subject_alternative_names
+}
