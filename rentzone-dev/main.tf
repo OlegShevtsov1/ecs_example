@@ -52,3 +52,21 @@ module "security_group" {
   vpc_id = module.vpc.vpc_id
   ssh_ip = var.ssh_ip
 }
+
+# # launch rds instance
+# module "rds" {
+#   # source = "../modules/rds"
+#   # source = "git@github.com:aosnotes77/terraform-modules.git//rds" 
+#   source = "git@github.com:OlegShevtsov1/ecs_example.git//rds?ref=terraform-dynamic"
+#   project_name = local.project_name
+#   environment  = local.environment
+
+#   private_data_subnet_az1_id = module.vpc.private_data_subnet_az1_id
+#   private_data_subnet_az2_id = module.vpc.private_data_subnet_az2_id
+#   database_snapshot_dentifier = var.database_snapshot_dentifier
+#   database_instance_class = var.database_instance_class
+#   availability_zone_1 = module.vpc.availability_zone_1
+#   database_instance_identifier = var.database_instance_identifier
+#   multi_az_deployment = var.multi_az_deployment
+#   database_security_group_id = module.security_group.database_security_group_id
+# }
