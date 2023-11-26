@@ -14,3 +14,21 @@
 
 # Prepare ENVs
 `cp terraform.tfvars.sample terraform.tfvars`
+
+
+# Creating a Repository in Amazon ECR with AWS CLI
+### aws cli command to create an amazon ecr repository
+`aws ecr create-repository --repository-name rentzone --region eu-west-2`
+
+### Pull docker images and test locally
+`docker run --rm -it -p 80:80 nginxdemos/hello`
+`curl localhost` 
+  
+### retag docker image 
+`docker tag nginxdemos/hello 607126099281.dkr.ecr.eu-west-2.amazonaws.com/rentzone`
+
+### login to ecr
+`aws ecr get-login-password --profile os-mfa | docker login --username AWS --password-stdin 607126099281.dkr.ecr.eu-west-2.amazonaws.com/rentzone`
+
+### push docker image to ecr repository 
+`docker push 607126099281.dkr.ecr.eu-west-2.amazonaws.com/rentzone`
