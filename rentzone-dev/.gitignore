@@ -5,3 +5,10 @@
 
 # Direnv
 *lock.hcl
+
+# env
+terraform.tfvars
+.env
+
+#b
+b/
